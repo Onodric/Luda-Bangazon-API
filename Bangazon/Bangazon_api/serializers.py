@@ -76,7 +76,7 @@ class CustomerSerializer(serializers.HyperlinkedModelSerializer):
     """
     """
     orders = OrderSerializer(many=True, read_only=True)
-    user = UserSerializer(read_only=True)
+    user = UserSerializer()
 
     class Meta:
         model = Customer
