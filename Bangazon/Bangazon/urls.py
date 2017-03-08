@@ -17,8 +17,10 @@ router.register(r'product_orders', views.OrderProductViewSet)
 # The API URLs are now determined automatically by the router.
 # Additionally, we include the login URLs for the browsable API.
 urlpatterns = [
-	url(r'^admin/', admin.site.urls),
+    url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
+    url(r'^login/', views.LoginView.as_view()),
+    url(r'^register/', views.RegisterView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 

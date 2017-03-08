@@ -215,7 +215,7 @@
 	"pk": 3,
 	"fields": {
 		"customer": 2,
-		"completed": 0,
+		"completed": 1,
 		"payment_type": null
 	}
 }, {
