@@ -19,8 +19,8 @@ router.register(r'product_orders', views.OrderProductViewSet)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
-    url(r'^login/', views.LoginView.as_view()),
-    url(r'^register/', views.RegisterView.as_view()),
+    url(r'^api/login/', views.LoginView.as_view()),
+    url(r'^api/register/', views.RegisterView.as_view()),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 

@@ -10,7 +10,7 @@ from rest_framework import viewsets, generics
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.contrib.auth import logout, login, authenticate
 from django.http import HttpResponse, HttpResponseRedirect, Http404
-# from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.csrf import csrf_exempt
 import json
 
 
