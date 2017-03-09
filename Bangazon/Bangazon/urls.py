@@ -1,6 +1,7 @@
 from django.conf.urls import url, include
 from Bangazon_api import views
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 from django.contrib import admin
 
 # Create a router, using DefaultRouter
@@ -19,8 +20,9 @@ router.register(r'product_orders', views.OrderProductViewSet)
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
-    url(r'^api/login/', views.LoginView.as_view()),
+    # url(r'^api/login/', views.LoginView.as_view()),
     url(r'^api/register/', views.RegisterView.as_view()),
-    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api-auth-token/', obtain_auth_token)
 ]
 
