@@ -29,20 +29,6 @@ class OrderProductSerializer(serializers.ModelSerializer):
         depth = 2
 
 
-class OrderSerializer(serializers.ModelSerializer):
-    """
-    Class for data serialization of a specific Model: Order
-    Added ProductOorderSerializer to make nested serializers in the
-        OrderSerializer
-    """
-    # product_orders = OrderProductSerializer(many=True, read_only=True)
-
-    class Meta:
-        model = Order
-        fields = '__all__'
-        depth = 1
-
-
 class UserSerializer(serializers.ModelSerializer):
     """
     Class for data serialization of a specific Model: User
@@ -75,7 +61,6 @@ class UserStaffSerializer(serializers.ModelSerializer):
 class CustomerSerializer(serializers.HyperlinkedModelSerializer):
     """
     """
-    orders = OrderSerializer(many=True, read_only=True)
     user = UserSerializer()
 
     class Meta:
@@ -104,3 +89,17 @@ class PaymentTypeSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = PaymentType
         fields = '__all__'
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    """
+    Class for data serialization of a specific Model: Order
+    Added ProductOorderSerializer to make nested serializers in the
+        OrderSerializer
+    """
+    customer = CustomerSerializer()
+
+    class Meta:
+        model = Order
+        fields = '__all__'
+        depth = 1
